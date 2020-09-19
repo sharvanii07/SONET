@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>Dynamic</title>
+    
+</head>
+<body style="background-image: url(Images/bg6.jpg);">
+   
+   
+      <h2 style="color: lightpink; text-align:start;">FILL YOUR DETAILS!</h2>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="well well-sm">
+                    <form onsubmit="pushData(this, event)">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="name" style="color: navajowhite;">
+                                 <h4>   Name:</h4></label>
+                                <input type="text" class="form-control" id="name" placeholder="Enter Your Name" required="required"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="email"  style="color: navajowhite;">
+                                   <h4> Email Address:</h4></label>
+                                <div class="input-group">
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span>
+                                    </span>
+                                    <input type="email" class="form-control" id="email" placeholder="Enter Your Email" required="required" /></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="section"  style="color: navajowhite;">
+                                  <h4> Section:</h4></label>
+                                <input type="text" class="form-control" id="section" placeholder="Enter Your Section" required="required"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="number"  style="color: navajowhite;">
+                                  <h4> Phone Number</h4></label>
+                                <input type="tel" class="form-control" id="number" placeholder="Enter Your Phone Number" required="required"/>
+                            </div>
+                            <div style="margin-top: 3%;">
+                                <button type="submit" class="btn btn-primary pull-right" id="btnsubmit" onclick="showbtn()">
+                                    Send Details</button>
+                            </div>
+
+                                    <div style="margin-bottom: 5%; margin-top: 3%;">
+                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" id="dbtn" disabled="disabled"> View Details</button>
+                                    </div>  
+                    </div>
+                    </form>
+                    
+                          </div>
+                </div>
+            </div>
+        </div>
+        <div id="exampleModal" class="modal" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header" style="background-color: rgb(252, 217, 196);">
+                  <h5 class="modal-title">Details.</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body" style="background-color: rgb(193, 239, 247);">
+                
+                    <table class="table">
+                      <thead class="thead-light">
+                        <tr>
+                          <th>Name</th>
+                          <th>Email</th>
+                          <th>Section</th>
+                          <th>Number</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                          
+                      </tbody>
+                    </table>
+                    <div class="modal-footer">We will send details to the given email.</div>
+                  </div>
+                </div>
+        <script src="script.js"></script>
+        <script>
+        function showbtn()
+{
+    document.getElementById("dbtn").removeAttribute('disabled');
+}
+        </script>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</body>
+</html>
