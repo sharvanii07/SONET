@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Weather</title>
+    <script>
+        var request = new XMLHttpRequest();
+        request.open('GET','https://api.openweathermap.org/data/2.5/group?id=1273294,1269843,1609350,2643743,3169070,5128581,2988507,3164603,292223,1880252&units=metric&appid=3baf99fa445333572e2cef5100d41fb8',true)
+       request.onload = function(){
+           if(request.status >=200 && request.status!=404){
+               //succcess
+               var data = JSON.parse(request.responseText);
+               console.log(data);
+           }
+           else
+           console.log("error");
+       };
+       request.send();
+       
+           </script>
+</head>
+<body style="background-image: url(Images/bg7.jpg); background-repeat: no-repeat; background-size:cover;">
+ <br>   <div class="container" style="color: lavender;">
+        <i class="fas fa-cloud" style="font-size:60px;color: lightblue;"><b style="color: lavenderblush;"> WEATHER</b></i>
+        <p class="lead" style="color: rgba(248, 195, 130, 0.911);"><b>Click on any of the cities from the dropdown to view its live weather!</b></p></div>
+    <div class="container box-body">
+        <form>
+          <div class="form-group row">
+              <h3 style="margin-left: 3%; color: lightpink;">Select a city:</h3>
+            <div class="col-sm-5">
+              <select class="form-control selectpicker" title=" Select City" id="select-country" data-live-search="true" onchange="changeFunc(value);">
+              <option value="" selected disabled>Please select</option>
+              <option data-tokens="Delhi" value="0">Delhi</option>
+              <option data-tokens="Hyderabad" value="1">Hyderabad</option>
+              <option data-tokens="Bangkok" value="2">Bangkok</option>
+              <option data-tokens="London" value="3">London</option>
+              <option data-tokens="Rome" value="4">Rome</option>
+              <option data-tokens="New York" value="5">New York</option>
+              <option data-tokens="Paris" value="6">Paris</option>
+              <option data-tokens="Venice" value="7">Venice</option>
+              <option data-tokens="Dubai" value="8">Dubai</option>
+              <option data-tokens="Singapore" value="9">Singapore</option>
+              </select>
+<br>
+            </div>
+          </div>
+        </form>
+       
+        <div class="container" hidden="true" id="detailstable">
+            <table class="table table-responsive col-12">
+                  <thead class="thead-outline-dark">
+                    <tr>
+                      <th style="vertical-align:top; color: rgb(186, 234, 243);">Name<br></th>
+                      <th style="color: rgb(186, 234, 243);">Current<br> Temperature</th>
+                      <th style="color: rgb(186, 234, 243);">Minimum<br> Temperature</th>
+                      <th style="color: rgb(186, 234, 243);">Maximum <br>Temperature</th>
+                      <th style="vertical-align:top; color: rgb(186, 234, 243);">Humidity</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                      <tr style="color: rgb(245, 222, 222);">
+                        <td id="name"></td>
+                        <td id="ctemp"></td>  
+                        <td id="mintemp"></td>
+                        <td id="maxtemp"></td>
+                        <td id="hum"></td>
+                      </tr>
+                  </tbody>
+                </table>
+                
+            </div>
+        </div>
+      </div>
+      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+      <script>
+          function changeFunc(value){
+              var data = JSON.parse(request.responseText);
+             console.log(data);
+             
+             document.getElementById("detailstable").removeAttribute("hidden");
+             document.getElementById("name").innerHTML = data.list[value].name;
+             document.getElementById("ctemp").innerHTML = data.list[value].main.temp +"&#8451";
+             document.getElementById("mintemp").innerHTML = data.list[value].main.temp_min +"&#8451";
+             document.getElementById("maxtemp").innerHTML = data.list[value].main.temp_max +"&#8451";
+             document.getElementById("hum").innerHTML = data.list[value].main.humidity+"%";
+
+          }
+      </script>
+
+</body>
+</html>
