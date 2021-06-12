@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>changecolor</title>
+</head>
+<body>
+    <br> <br> <br> <br>
+    <center>
+       <h1>Change the background colour via colour pciker:</h1>
+        <input type="text" id="colorInputText">
+        <input type="color" id="colorInputColor">
+        <input type="button" id="colorButton" value="Click to change color" onclick="changeColor()">
+        
+    <br> <br> <br> <br>
+    <p>
+        <label for="dropdown"><h1>Choose:</h1></label>
+        <select id="color" onchange="myfun()">
+        <option value="0">Default</option>
+        <option value="1">Yellow</option>
+        <option value="2">Blue</option>
+        <option value="3">Pink</option>
+        <option value="4">Red</option>
+        <option value="5">Lavender</option>
+        </select>
+
+        <h2 id="yellow"> This will turn YELLOW</h2>
+        <h2 id="blue"> This will turn BLUE</h2>
+        <h2 id="pink"> This will turn PINK</h2>
+        <h2 id="red"> This will turn RED</h2>
+        <h2 id="lavender"> This will turn LAVENDER</h2>
+    </p>
+</center>
+    <script>
+        function changeColor(){
+            let color = document.getElementById('colorInputColor').value;
+            document.body.style.backgroundColor = color;
+         }
+     </script>
+<script>
+        function myfun(){
+            var x=document.getElementById("color").value;
+            if(x=='1'){
+                document.getElementById('yellow').style.backgroundColor="yellow";
+            }
+            if(x=='2'){
+                document.getElementById('blue').style.backgroundColor="blue";
+            }
+            if(x=='3'){
+                document.getElementById('pink').style.backgroundColor="pink";
+            }
+            if(x=='4'){
+                document.getElementById('red').style.backgroundColor="red";
+            }
+             if(x=='5'){
+                document.getElementById('lavender').style.backgroundColor="lavender";
+            }
+        }
+            
+        
+    </script>
+</body>
+</html>
